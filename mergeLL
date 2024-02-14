@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+class node{
+    public :
+    int data;
+    node* next;
+    node(int data){
+        this->data = data;
+        this->next = NULL;
+    }
+};
+node* inpdata(){
+    int data;
+    cin>>data;
+    node* head=NULL;
+    node* tail=NULL;
+    while(data>0){
+        node* newnode=new node(data);
+        if(head==NULL){
+            head=newnode;
+            tail=newnode;
+        }
+        else{
+            tail->next=newnode;
+            tail=newnode;
+        }
+        cin>>data;
+    }
+    return head;
+}
+node* display(node* head)
+{
+	if(head==NULL){
+		return 0;
+	}
+	while(head!=NULL){
+		cout<<head->data<<"--";
+		head=head->next;
+	}
+	cout<<"nullptr"<<endl;
+}
+int main(){
+    cout<<"enter elements of linked list enter negative when done"<<endl;
+   node* asd = inpdata();
+   display(asd);
+ return 0;
+}
